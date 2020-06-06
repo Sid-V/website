@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Grid, Flag, Divider, Responsive, Container } from "semantic-ui-react";
+import { Header, Grid, Flag, Divider, Container } from "semantic-ui-react";
 
 import "./App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -9,8 +9,9 @@ import { Carousel } from "react-responsive-carousel";
 import pic from "./assets/picture.jpg";
 import pic13 from "./assets/about/pic13.JPG";
 import pic5 from "./assets/about/pic5.jpg";
-import pic12 from "./assets/about/pic12.JPG";
 import pic14 from "./assets/about/pic14.JPG";
+import pic15 from "./assets/about/pic15.jpg";
+import pic12 from "./assets/about/pic12.PNG";
 
 export default class Home extends React.Component {
   render() {
@@ -32,8 +33,8 @@ export default class Home extends React.Component {
                     autoPlay={true}
                     transitionTime={1000}
                     interval={4000}
-                    showArrows={false}
-                    showIndicators={false}
+                    showArrows={true}
+                    showIndicators={true}
                     showStatus={false}
                     showThumbs={false}
                     dynamicHeight={true}
@@ -43,11 +44,13 @@ export default class Home extends React.Component {
 
                     <img src={pic5} />
 
-                    <img src={pic13} />
+                    <img src={pic15} />
 
                     <img src={pic12} />
 
                     <img src={pic14} />
+
+                    <img src={pic13} />
                   </Carousel>
                 </Grid.Column>
                 <Grid.Column width={6}>
@@ -55,10 +58,13 @@ export default class Home extends React.Component {
                     <h3>Purdue University - Computer Science</h3>
                     <h3>Class of 2021</h3>
                     <h3>
-                      Welcome to my personal website! It's a place where I showcase things that wouldn't normally fit on
-                      a 1-page resume.
+                      Welcome to my personal website! It's a place where I showcase things that
+                      wouldn't normally fit on a 1-page resume.
                     </h3>
-                    <h4>Send me a message through the contact form if there is anything you'd like to say :)</h4>
+                    <h4>
+                      Send me a message through the contact form if there is anything you'd like to
+                      say :)
+                    </h4>
                     <Flag name="india" />
                     <Flag name="united states" />
                   </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch, HashRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Divider } from "semantic-ui-react";
 
 import WelcomeMessage from "./Welcome.js";
@@ -11,7 +11,8 @@ import Home from "./Home.js";
 import Experience from "./Experience.js";
 import Links from "./Links.js";
 import Gallery from "./Gallery.js";
-
+import Teaching from "./Teaching.js";
+import Courses from "./Courses.js";
 //TODO
 //Add WelcomeMessage later
 //Add video link for twister
@@ -31,6 +32,8 @@ export default class App extends React.Component {
               <Route path="/experience" component={Experience} />
               <Route path="/projects" component={Projects} />
               <Route path="/resume" component={Resume} />
+              <Route path="/teaching" component={Teaching} />
+              <Route path="/courses" component={Courses} />
             </Switch>
           </div>
           <Divider />

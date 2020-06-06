@@ -18,6 +18,9 @@ export default class Links extends React.Component {
         <a href="https://github.com/Sid-V" target="_blank" rel="noopener noreferrer" className="padded-links">
           <Icon name="github" size="huge" />
         </a>
+        <a href="https://www.instagram.com/sid.v_" target="_blank" rel="noopener noreferrer" className="padded-links">
+          <Icon name="instagram" size="huge" />
+        </a>
         <a
           href="https://www.facebook.com/sidharth.venkatesh"
           target="_blank"
