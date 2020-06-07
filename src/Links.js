@@ -6,8 +6,8 @@ import "./App.css";
 export default class Links extends React.Component {
   render() {
     return (
-      <div>
-        <Grid columns={5} container centered>
+      <div className="page-center">
+        <Grid columns={5} container>
           <Grid.Row>
             <Grid.Column>
               <a

@@ -5,7 +5,7 @@ import "./App.css";
 export default class App extends React.Component {
   render() {
     return (
-      <div className="padded-grid">
+      <div className="padded-grid font-medium">
         <Container>
           <Grid columns={2} stackable doubling>
             <Grid.Row>

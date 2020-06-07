@@ -45,12 +45,22 @@
 
 .form {
   margin: 0;
-  width: 60%;
-  margin-left: 20%;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .padded-links {
   padding-left: 2%;
   padding-right: 2%;
   padding-bottom: 3%;
+}
+
+.font-medium {
+  font-size: medium;
+}
+
+.page-center {
+  align-items: center;
+  align-content: center;
 }

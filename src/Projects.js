@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Item,
-  Icon,
-  Grid,
-  List,
-  Embed,
-  Modal,
-  Header,
-  Divider,
-  Container,
-} from "semantic-ui-react";
+import { Item, Icon, Grid, List, Embed, Modal, Header, Divider } from "semantic-ui-react";
 
 import twister from "./assets/twister.png";
 import tracer from "./assets/tracer.jpg";

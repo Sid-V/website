@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Header, Message, TextArea, Divider } from "semantic-ui-react";
+import { Form, Header, Message, TextArea, Divider, Container } from "semantic-ui-react";
 import "./App.css";
 import emailjs from "emailjs-com";
 
@@ -11,7 +11,7 @@ export default class ContactForm extends React.Component {
       email: "",
       message: "",
       mailSent: false,
-      error: false
+      error: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -19,7 +19,7 @@ export default class ContactForm extends React.Component {
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     console.log(this.state);
     let self = this;
@@ -34,7 +34,7 @@ export default class ContactForm extends React.Component {
       from_name: this.state.name,
       to_name: "Sidharth",
       message_html: this.state.message,
-      from_email: this.state.email
+      from_email: this.state.email,
     };
     var service_id = "default_service";
     var template_id = "template_TgUIawZM";
@@ -42,11 +42,11 @@ export default class ContactForm extends React.Component {
 
     emailjs
       .send(service_id, template_id, template_params, user_id)
-      .then(function(response) {
+      .then(function (response) {
         self.setState({ mailSent: true, error: false });
         self.resetForm();
       })
-      .catch(function(error) {
+      .catch(function (error) {
         self.setState({ error: true, mailSent: false });
       });
   };
@@ -60,16 +60,44 @@ export default class ContactForm extends React.Component {
 
     return (
       <div className="form">
-        <Header as="h3">Contact Form</Header>
-        <Form onSubmit={this.handleSubmit} success={this.state.mailSent} error={this.state.error}>
-          <Form.Input placeholder="Name" name="name" value={name} onChange={this.handleChange} required />
-          <Form.Input placeholder="Email" name="email" value={email} onChange={this.handleChange} required />
-          <TextArea placeholder="Your message" name="message" value={message} onChange={this.handleChange} required />
-          <Divider hidden />
-          <Message success header="Message sent!" content="Sidharth will get back to you as soon as possible!" />
-          <Message error header="Message failed!" content="Please check your values and try again!" />
-          <Form.Button content="Submit" />
-        </Form>
+        <Container>
+          <Header as="h3">Contact Form</Header>
+          <Form onSubmit={this.handleSubmit} success={this.state.mailSent} error={this.state.error}>
+            <Form.Input
+              placeholder="Name"
+              name="name"
+              value={name}
+              onChange={this.handleChange}
+              required
+            />
+            <Form.Input
+              placeholder="Email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+              required
+            />
+            <TextArea
+              placeholder="Your message"
+              name="message"
+              value={message}
+              onChange={this.handleChange}
+              required
+            />
+            <Divider hidden />
+            <Message
+              success
+              header="Message sent!"
+              content="Sidharth will get back to you as soon as possible!"
+            />
+            <Message
+              error
+              header="Message failed!"
+              content="Please check your values and try again!"
+            />
+            <Form.Button content="Submit" />
+          </Form>
+        </Container>
       </div>
     );
   }
