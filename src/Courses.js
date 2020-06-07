@@ -6,8 +6,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="padded-grid">
-        <Container fluid>
-          <Grid columns={2}>
+        <Container>
+          <Grid columns={2} stackable doubling>
             <Grid.Row>
               <Grid.Column>
                 <Card centered>

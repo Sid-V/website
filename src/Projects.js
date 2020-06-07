@@ -1,5 +1,15 @@
 import React from "react";
-import { Item, Icon, Grid, List, Embed, Modal, Header, Divider } from "semantic-ui-react";
+import {
+  Item,
+  Icon,
+  Grid,
+  List,
+  Embed,
+  Modal,
+  Header,
+  Divider,
+  Container,
+} from "semantic-ui-react";
 
 import twister from "./assets/twister.png";
 import tracer from "./assets/tracer.jpg";
@@ -25,8 +35,9 @@ export default class Projects extends React.Component {
                     <Icon name="gg circle" />
                     <List.Content>
                       <List.Description>
-                        Part of CS 307 - Software Engineering course. A semester long scrum focused team project. We
-                        were given some guidelines to follow and a base product to build - a twitter clone.
+                        Part of CS 307 - Software Engineering course. A semester long scrum focused
+                        team project. We were given some guidelines to follow and a base product to
+                        build - a twitter clone.
                       </List.Description>
                     </List.Content>
                   </List.Item>
@@ -34,7 +45,8 @@ export default class Projects extends React.Component {
                     <Icon name="gg circle" />
                     <List.Content>
                       <List.Description>
-                        Responsible for the front end and integration of the project. Used React Bootstrap JS with CSS.
+                        Responsible for the front end and integration of the project. Used React
+                        Bootstrap JS with CSS.
                       </List.Description>
                     </List.Content>
                   </List.Item>
@@ -42,23 +54,32 @@ export default class Projects extends React.Component {
                     <Icon name="gg circle" />
                     <List.Content>
                       <List.Description>
-                        Check out the deployed project with the link below! (Will take a bit to load)
+                        Check out the deployed project with the link below! (Will take a bit to
+                        load)
                       </List.Description>
                     </List.Content>
                   </List.Item>
                 </List>
               </Item.Description>
               <Item.Extra>
-                <Grid columns={4} container>
+                <Grid columns={4} container doubling>
                   <Grid.Row>
                     <Grid.Column>
-                      <a href="http://twisttier.herokuapp.com/" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="http://twisttier.herokuapp.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Icon name="chess" size="big" />
                       </a>
                       <p>Link</p>
                     </Grid.Column>
                     <Grid.Column>
-                      <a href="https://dev.azure.com/sidv/CS307/_git/CS307" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://dev.azure.com/sidv/CS307/_git/CS307"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Icon name="github" size="big" />
                       </a>
                       <p>Github Repo</p>
@@ -109,8 +130,8 @@ export default class Projects extends React.Component {
                     <Icon name="gg circle" />
                     <List.Content>
                       <List.Description>
-                        Partnered with T-Mobile as part of a customer hack to build a self-driving car with a race
-                        track.
+                        Partnered with T-Mobile as part of a customer hack to build a self-driving
+                        car with a race track.
                       </List.Description>
                     </List.Content>
                   </List.Item>
@@ -118,23 +139,30 @@ export default class Projects extends React.Component {
                     <Icon name="gg circle" />
                     <List.Content>
                       <List.Description>
-                        Responsible for the software side and testing the collisions and tuning hyperparameters.
+                        Responsible for the software side and testing the collisions and tuning
+                        hyperparameters.
                       </List.Description>
                     </List.Content>
                   </List.Item>
                   <List.Item>
                     <Icon name="gg circle" />
                     <List.Content>
-                      <List.Description>Check out the car self-driving in action below!</List.Description>
+                      <List.Description>
+                        Check out the car self-driving in action below!
+                      </List.Description>
                     </List.Content>
                   </List.Item>
                 </List>
               </Item.Description>
               <Item.Extra>
-                <Grid columns={2} container>
+                <Grid columns={2} container doubling>
                   <Grid.Row>
                     <Grid.Column>
-                      <a href="https://github.com/tmobile" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://github.com/tmobile"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Icon name="github" size="big" />
                       </a>
                       <p>Github Repo</p>
@@ -173,9 +201,9 @@ export default class Projects extends React.Component {
                     <Icon name="gg circle" />
                     <List.Content>
                       <List.Description>
-                        Many lives are lost each year to fire accidents at homes caused by children. We decided to come
-                        up with a unique biometric solution that allows only authorized users to use hazardous kitchen
-                        equipment.
+                        Many lives are lost each year to fire accidents at homes caused by children.
+                        We decided to come up with a unique biometric solution that allows only
+                        authorized users to use hazardous kitchen equipment.
                       </List.Description>
                     </List.Content>
                   </List.Item>
@@ -183,8 +211,9 @@ export default class Projects extends React.Component {
                     <Icon name="gg circle" />
                     <List.Content>
                       <List.Description>
-                        Responsible for the hardware and software integration with the Arduino and the servo motor.
-                        Built a working prototype using a Rice Krispies box and jammed all the hardware inside!
+                        Responsible for the hardware and software integration with the Arduino and
+                        the servo motor. Built a working prototype using a Rice Krispies box and
+                        jammed all the hardware inside!
                       </List.Description>
                     </List.Content>
                   </List.Item>
@@ -197,16 +226,22 @@ export default class Projects extends React.Component {
                   <List.Item>
                     <Icon name="gg circle" />
                     <List.Content>
-                      <List.Description>Check out our cool working demo and concept video below!</List.Description>
+                      <List.Description>
+                        Check out our cool working demo and concept video below!
+                      </List.Description>
                     </List.Content>
                   </List.Item>
                 </List>
               </Item.Description>
               <Item.Extra>
-                <Grid columns={4} container>
+                <Grid columns={4} container doubling>
                   <Grid.Row>
                     <Grid.Column>
-                      <a href="https://github.com/baranusluel/autoknoby" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://github.com/baranusluel/autoknoby"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Icon name="github" size="big" />
                       </a>
                       <p>Github Repo</p>
@@ -270,9 +305,10 @@ export default class Projects extends React.Component {
                     <Icon name="gg circle" />
                     <List.Content>
                       <List.Description>
-                        Part of CS 252 - Systems Programming course. Was given creative freedom to work on anything.
-                        Used this opportunity to get familiar with client-server architecture with Python Flask/HTML/JS
-                        for an event viewing and management app that can be used in a college campus.
+                        Part of CS 252 - Systems Programming course. Was given creative freedom to
+                        work on anything. Used this opportunity to get familiar with client-server
+                        architecture with Python Flask/HTML/JS for an event viewing and management
+                        app that can be used in a college campus.
                       </List.Description>
                     </List.Content>
                   </List.Item>
@@ -280,7 +316,8 @@ export default class Projects extends React.Component {
                     <Icon name="gg circle" />
                     <List.Content>
                       <List.Description>
-                        Responsible for both server side and client side code and integration testing.
+                        Responsible for both server side and client side code and integration
+                        testing.
                       </List.Description>
                     </List.Content>
                   </List.Item>
@@ -288,23 +325,32 @@ export default class Projects extends React.Component {
                     <Icon name="gg circle" />
                     <List.Content>
                       <List.Description>
-                        Check out the deployed project with the link below! (Will take a bit to load)
+                        Check out the deployed project with the link below! (Will take a bit to
+                        load)
                       </List.Description>
                     </List.Content>
                   </List.Item>
                 </List>
               </Item.Description>
               <Item.Extra>
-                <Grid columns={4} container>
+                <Grid columns={4} container doubling>
                   <Grid.Row>
                     <Grid.Column>
-                      <a href="http://purduego-out.herokuapp.com/" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="http://purduego-out.herokuapp.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Icon name="chess" size="big" />
                       </a>
                       <p>Link</p>
                     </Grid.Column>
                     <Grid.Column>
-                      <a href="https://github.com/TarcanGul/GoOut" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://github.com/TarcanGul/GoOut"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Icon name="github" size="big" />
                       </a>
                       <p>Github Repo</p>
@@ -340,6 +386,7 @@ export default class Projects extends React.Component {
             </Item.Content>
           </Item>
         </Item.Group>
+        <Divider />
         <Divider />
       </div>
     );

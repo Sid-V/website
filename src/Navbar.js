@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import resumeDownload from "./assets/Resume_Sidharth_Spring2020.pdf";
 //https://drive.google.com/open?id=1qxgsbqucXccKLcHIOhPdimjkNTSEUAku
@@ -11,7 +11,7 @@ export default class Navbar extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <Menu size="huge" fluid>
+      <Menu size="huge" stackable fluid comapct>
         <Menu.Item
           as={Link}
           to="/"

@@ -12,6 +12,7 @@ import pic5 from "./assets/about/pic5.jpg";
 import pic14 from "./assets/about/pic14.JPG";
 import pic15 from "./assets/about/pic15.jpg";
 import pic12 from "./assets/about/pic12.PNG";
+import Links from "./Links";
 
 export default class Home extends React.Component {
   render() {

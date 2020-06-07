@@ -18,6 +18,11 @@ import Courses from "./Courses.js";
 //Add video link for twister
 //Add TA experience tab
 
+//MOBILE EXPERIENCE
+//Click on picture to expand it
+//courses page should be one below the other instead of maintaining the 2 cols approach
+//links icons fit on 1 row
+
 export default class App extends React.Component {
   render() {
     return (

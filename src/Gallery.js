@@ -21,7 +21,7 @@ export default class Gallery extends React.Component {
   render() {
     return (
       <div className="padded-grid">
-        <Grid columns={2}>
+        <Grid columns={2} stackable>
           <Grid.Row>
             <Grid.Column>
               <Image className="attached" centered rounded src={pic18} size="large" />
@@ -116,7 +116,6 @@ export default class Gallery extends React.Component {
               <Message attached="bottom" compact>
                 Red Mt. Rainier - Seattle, Summer 2019
               </Message>
-              >
             </Grid.Column>
           </Grid.Row>
 
