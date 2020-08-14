@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/static/css/main.1f9e4cb3.chunk.css",
-    "main.js": "/static/js/main.d8e21ae2.chunk.js",
-    "main.js.map": "/static/js/main.d8e21ae2.chunk.js.map",
+    "main.js": "/static/js/main.4fb0cd67.chunk.js",
+    "main.js.map": "/static/js/main.4fb0cd67.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.94a6af97.js",
     "runtime-main.js.map": "/static/js/runtime-main.94a6af97.js.map",
     "static/css/2.afd40c00.chunk.css": "/static/css/2.afd40c00.chunk.css",
-    "static/js/2.b6fd21cd.chunk.js": "/static/js/2.b6fd21cd.chunk.js",
-    "static/js/2.b6fd21cd.chunk.js.map": "/static/js/2.b6fd21cd.chunk.js.map",
+    "static/js/2.c0cde19c.chunk.js": "/static/js/2.c0cde19c.chunk.js",
+    "static/js/2.c0cde19c.chunk.js.map": "/static/js/2.c0cde19c.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.c41658f1e8839062e88553e846bd7426.js": "/precache-manifest.c41658f1e8839062e88553e846bd7426.js",
+    "precache-manifest.999e7a474374679ddda9f86724a54193.js": "/precache-manifest.999e7a474374679ddda9f86724a54193.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.afd40c00.chunk.css.map": "/static/css/2.afd40c00.chunk.css.map",
     "static/css/main.1f9e4cb3.chunk.css.map": "/static/css/main.1f9e4cb3.chunk.css.map",
-    "static/js/2.b6fd21cd.chunk.js.LICENSE.txt": "/static/js/2.b6fd21cd.chunk.js.LICENSE.txt",
-    "static/media/Resume_Sidharth_Spring2020.pdf": "/static/media/Resume_Sidharth_Spring2020.ecc28fd5.pdf",
-    "static/media/autoknoby.PNG": "/static/media/autoknoby.a87f75b8.PNG",
+    "static/js/2.c0cde19c.chunk.js.LICENSE.txt": "/static/js/2.c0cde19c.chunk.js.LICENSE.txt",
+    "static/media/Resume_Sidharth_Venkatesh_Summer2020.pdf": "/static/media/Resume_Sidharth_Venkatesh_Summer2020.dc741fe3.pdf",
+    "static/media/autoknoby.PNG": "/static/media/autoknoby.7fd41d4e.PNG",
     "static/media/go_out.PNG": "/static/media/go_out.4d7c0971.PNG",
     "static/media/logo_codecafe.jpg": "/static/media/logo_codecafe.d0d320dd.jpg",
     "static/media/logo_infosys.png": "/static/media/logo_infosys.cdd51d33.png",
@@ -39,7 +39,7 @@
     "static/media/pic4.jpeg": "/static/media/pic4.8d60c3d4.jpeg",
     "static/media/pic5.jpg": "/static/media/pic5.4c097246.jpg",
     "static/media/pic6.jpeg": "/static/media/pic6.e321c165.jpeg",
-    "static/media/pic7.PNG": "/static/media/pic7.ee07a45c.PNG",
+    "static/media/pic7.png": "/static/media/pic7.46a2ee26.png",
     "static/media/pic8.jpeg": "/static/media/pic8.c17feca6.jpeg",
     "static/media/pic9.jpg": "/static/media/pic9.f1ee8288.jpg",
     "static/media/picture.jpg": "/static/media/picture.d68897fc.jpg",
@@ -49,8 +49,8 @@
   "entrypoints": [
     "static/js/runtime-main.94a6af97.js",
     "static/css/2.afd40c00.chunk.css",
-    "static/js/2.b6fd21cd.chunk.js",
+    "static/js/2.c0cde19c.chunk.js",
     "static/css/main.1f9e4cb3.chunk.css",
-    "static/js/main.d8e21ae2.chunk.js"
+    "static/js/main.4fb0cd67.chunk.js"
   ]
 }
