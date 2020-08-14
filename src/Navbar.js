@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import resumeDownload from "./assets/Resume_Sidharth_Spring2020.pdf";
-//https://drive.google.com/open?id=1qxgsbqucXccKLcHIOhPdimjkNTSEUAku
+import resumeDownload from "./assets/Resume_Sidharth_Venkatesh_Summer2020.pdf";
+
+//resume link: https://drive.google.com/open?id=1qxgsbqucXccKLcHIOhPdimjkNTSEUAku
 
 export default class Navbar extends Component {
   state = {};
@@ -12,13 +13,14 @@ export default class Navbar extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <Menu size="huge" stackable fluid comapct>
+      <Menu size="huge" stackable fluid compact>
         <Menu.Item
           as={Link}
           to="/"
           name="Home"
           active={activeItem === "Home"}
           onClick={this.handleItemClick}
+          color='purple'
         >
           Home
         </Menu.Item>
@@ -29,6 +31,7 @@ export default class Navbar extends Component {
           name="Gallery"
           active={activeItem === "Gallery"}
           onClick={this.handleItemClick}
+          color='purple'
         >
           Gallery
         </Menu.Item>
@@ -41,6 +44,7 @@ export default class Navbar extends Component {
           active={activeItem === "Resume"}
           onClick={this.handleItemClick}
           download
+          color='purple'
         >
           Resume
         </Menu.Item>
@@ -51,6 +55,7 @@ export default class Navbar extends Component {
           name="Experience"
           active={activeItem === "Experience"}
           onClick={this.handleItemClick}
+          color='purple'
         >
           Experience
         </Menu.Item>
@@ -61,6 +66,7 @@ export default class Navbar extends Component {
           name="Projects"
           active={activeItem === "Projects"}
           onClick={this.handleItemClick}
+          color='purple'
         >
           Projects
         </Menu.Item>
@@ -70,6 +76,7 @@ export default class Navbar extends Component {
           name="Teaching"
           active={activeItem === "Teaching"}
           onClick={this.handleItemClick}
+          color='purple'
         >
           Teaching
         </Menu.Item>
@@ -79,6 +86,7 @@ export default class Navbar extends Component {
           name="Courses"
           active={activeItem === "Courses"}
           onClick={this.handleItemClick}
+          color='purple'
         >
           Courses
         </Menu.Item>

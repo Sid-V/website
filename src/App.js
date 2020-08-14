@@ -4,15 +4,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Divider } from "semantic-ui-react";
 
 import WelcomeMessage from "./Welcome.js";
-import Projects from "./Projects.js";
+import {Projects} from "./Projects.js";
 import Resume from "./Resume.js";
 import Navbar from "./Navbar.js";
 import Home from "./Home.js";
-import Experience from "./Experience.js";
+import {Experience} from "./Experience.js";
 import Links from "./Links.js";
-import Gallery from "./Gallery.js";
-import Teaching from "./Teaching.js";
-import Courses from "./Courses.js";
+import {Gallery} from "./Gallery.js";
+import {Teaching} from "./Teaching.js";
+import {Courses} from "./Courses.js";
 
 //TODO
 //Add WelcomeMessage later

@@ -88,7 +88,7 @@ export default class ContactForm extends React.Component {
             <Message
               success
               header="Message sent!"
-              content="Sidharth will get back to you as soon as possible!"
+              content="I will get back to you as soon as possible! :)"
             />
             <Message
               error

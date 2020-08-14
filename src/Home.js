@@ -39,18 +39,19 @@ export default class Home extends React.Component {
                     showThumbs={false}
                     dynamicHeight={true}
                     infiniteLoop={true}
+                    swipeable={true}
                   >
-                    <img src={pic} />
+                    <img src={pic} alt=""/>
 
-                    <img src={pic5} />
+                    <img src={pic5} alt=""/>
 
-                    <img src={pic15} />
+                    <img src={pic15} alt=""/>
 
-                    <img src={pic12} />
+                    <img src={pic12} alt=""/>
 
-                    <img src={pic14} />
+                    <img src={pic14} alt=""/>
 
-                    <img src={pic13} />
+                    <img src={pic13} alt=""/>
                   </Carousel>
                 </Grid.Column>
                 <Grid.Column width={6}>

@@ -7,7 +7,7 @@ import pic3 from "./assets/about/pic3.jpeg";
 import pic4 from "./assets/about/pic4.jpeg";
 import pic5 from "./assets/about/pic5.jpg";
 import pic6 from "./assets/about/pic6.jpeg";
-import pic7 from "./assets/about/pic7.PNG";
+import pic7 from "./assets/about/pic7.png";
 import pic8 from "./assets/about/pic8.jpeg";
 import pic9 from "./assets/about/pic9.jpg";
 import pic10 from "./assets/about/pic10.jpg";
@@ -17,125 +17,61 @@ import pic17 from "./assets/about/pic17.jpg";
 import pic18 from "./assets/about/pic18.jpg";
 import pic19 from "./assets/about/pic19.jpg";
 
-export default class Gallery extends React.Component {
-  render() {
+const picArray = [pic18, pic17, pic19, pic16, pic2, pic8, pic6, pic5, pic1, pic9, pic7, pic11, pic10, pic3, pic4]
+const descArray = [
+  "Miami Wynwood Marketplace 2020",
+  "Miami Beach 2020",
+  "Miami Wynwood Marketplace 2020",
+  "Columbian Park, Lafayette 2020",
+  "Mt. Rainer - Seattle Summer 2019",
+  "Taiyaki Ice Cream - NYC Thanksgiving 2019",
+  "Benny Tudino's - NYC Thanksgiving 2019",
+  "Mt. Rainier Sunrise Hike - Seattle, Summer 2019",
+  "Microsoft Hackathon with Satya Nadella - Seattle, Summer 2019",
+  "Beach boys - San Diego, Summer 2018",
+  "No caption required - NYC Thanksgiving 2019",
+  "Eyes open - NYC Thanksgiving 2019",
+  "Times Square - NYC Thanksgiving 2019",
+  "Red Mt. Rainier - Seattle, Summer 2019",
+  "4th of July - Seattle, Summer 2019"
+]
+const dictPics = {
+  pic18: "Miami Wynwood Marketplace 2020",
+  pic17: "Miami Beach 2020",
+  pic19: "Miami Wynwood Marketplace 2020",
+  pic16: "Columbian Park, Lafayette 2020",
+  pic2: "Mt. Rainer - Seattle Summer 2019",
+  pic8: "Taiyaki Ice Cream - NYC Thanksgiving 2019",
+  pic6: "Benny Tudino's - NYC Thanksgiving 2019",
+  pic5: "Mt. Rainier Sunrise Hike - Seattle, Summer 2019",
+  pic1: "Microsoft Hackathon with Satya Nadella - Seattle, Summer 2019",
+  pic9: "Beach boys - San Diego, Summer 2018",
+  pic7: "No caption required - NYC Thanksgiving 2019",
+  pic10: "Times Square - NYC Thanksgiving 2019",
+  pic3: "Red Mt. Rainier - Seattle, Summer 2019",
+  pic11: "Eyes open - NYC Thanksgiving 2019",
+  pic4: "4th of July - Seattle, Summer 2019"
+}
+//console.log(dictPics)
+
+export function Gallery() {
+  
+  const galleryItems = picArray.map((key, i) => {
     return (
-      <div className="padded-grid">
-        <Grid columns={2} stackable>
-          <Grid.Row>
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic18} size="large" />
-              <Message attached="bottom" compact>
-                Miami Wynwood Marketplace 2020
-              </Message>
-            </Grid.Column>
-            <Grid.Column>
-              <Image className="attached" centered src={pic17} size="large" />
-              <Message attached="bottom" compact>
-                Miami Beach 2020
-              </Message>
-            </Grid.Column>
-          </Grid.Row>
-
-          <Grid.Row>
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic19} size="large" />
-              <Message attached="bottom" compact>
-                Miami Wynwood Marketplace 2020
-              </Message>
-            </Grid.Column>
-            <Grid.Column>
-              <Image className="attached" centered src={pic16} size="large" />
-              <Message attached="bottom" compact>
-                Columbian Park, Lafayette 2020
-              </Message>
-            </Grid.Column>
-          </Grid.Row>
-
-          <Grid.Row>
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic2} size="large" />
-              <Message attached="bottom" compact>
-                Mt. Rainer - Seattle Summer 2019
-              </Message>
-            </Grid.Column>
-            <Grid.Column>
-              <Image className="attached" centered src={pic8} size="large" />
-              <Message attached="bottom" compact>
-                Taiyaki Ice Cream - NYC Thanksgiving 2019
-              </Message>
-            </Grid.Column>
-          </Grid.Row>
-
-          <Grid.Row>
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic6} size="large" />
-              <Message attached="bottom" compact>
-                Benny Tudino's - NYC Thanksgiving 2019
-              </Message>
-            </Grid.Column>
-
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic5} size="large" />
-              <Message attached="bottom" compact>
-                Mt. Rainier Sunrise Hike - Seattle, Summer 2019
-              </Message>
-            </Grid.Column>
-          </Grid.Row>
-
-          <Grid.Row>
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic1} size="large" />
-              <Message attached="bottom" compact>
-                Microsoft Hackathon with Satya Nadella - Seattle, Summer 2019
-              </Message>
-            </Grid.Column>
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic9} size="large" />
-              <Message attached="bottom" compact>
-                Beach boys - San Diego, Summer 2018
-              </Message>
-            </Grid.Column>
-          </Grid.Row>
-
-          <Grid.Row>
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic7} size="large" />
-              <Message attached="bottom" compact>
-                No caption required - NYC Thanksgiving 2019
-              </Message>
-            </Grid.Column>
-
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic10} size="large" />
-              <Message attached="bottom" compact>
-                Times Square - NYC Thanksgiving 2019
-              </Message>
-              <Divider hidden />
-              <Image className="attached" centered rounded src={pic3} size="large" />
-              <Message attached="bottom" compact>
-                Red Mt. Rainier - Seattle, Summer 2019
-              </Message>
-            </Grid.Column>
-          </Grid.Row>
-
-          <Grid.Row>
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic11} size="large" />
-              <Message attached="bottom" compact>
-                Eyes open - NYC Thanksgiving 2019
-              </Message>
-            </Grid.Column>
-            <Grid.Column>
-              <Image className="attached" centered rounded src={pic4} size="large" />
-              <Message attached="bottom" compact>
-                4th of July - Seattle, Summer 2019
-              </Message>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-        <Divider />
-      </div>
+      <Grid.Column key={i}>
+        <Image className="attached" centered rounded src={key} size="large" />
+        <Message attached="bottom" compact color='purple'>
+          {descArray[i]}
+        </Message>
+      </Grid.Column>
     );
-  }
+  })
+  return (
+    <div className="padded-grid">
+      <Grid columns={2} stackable>
+        {galleryItems}
+      </Grid>
+      <Divider />
+    </div>
+  )
 }
