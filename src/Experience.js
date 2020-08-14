@@ -16,7 +16,7 @@ export function Experience() {
   const [experience, setExperience] = useState([]);
   
   useEffect(() => {    
-    fetch("http://sidv-website-api.azurewebsites.net/api/experience")
+    fetch("https://sidv-website-api.azurewebsites.net/api/experience")
       .then(response => response.json())
       //.then(res => console.log(res))
       .then(json => setExperience(json))

@@ -13,7 +13,7 @@ export function Teaching() {
   const [teaching, setTeaching] = useState([]);
 
   useEffect(() => {    
-    fetch("http://sidv-website-api.azurewebsites.net/api/teaching")
+    fetch("https://sidv-website-api.azurewebsites.net/api/teaching")
       .then(response => response.json())
       .then(json => setTeaching(json))
       .catch(error => console.log('error with fetch', error));

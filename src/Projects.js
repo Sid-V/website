@@ -14,7 +14,7 @@ export function Projects() {
   const [project, setProject] = useState([]);
 
   useEffect(() => {    
-    fetch("http://sidv-website-api.azurewebsites.net/api/projects")
+    fetch("https://sidv-website-api.azurewebsites.net/api/projects")
       .then(response => response.json())
       //.then(res => console.log(res))
       .then(json => setProject(json))

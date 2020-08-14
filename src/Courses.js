@@ -7,7 +7,7 @@ export function Courses() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {    
-    fetch("http://sidv-website-api.azurewebsites.net/api/courses")
+    fetch("https://sidv-website-api.azurewebsites.net/api/courses")
       .then(response => response.json())
       .then(json => setCourses(json))
       .catch(error => console.log('error with fetch', error));
