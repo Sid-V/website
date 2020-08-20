@@ -7,21 +7,18 @@ import ContactForm from "./ContactForm";
 import { Carousel } from "react-responsive-carousel";
 
 export function Home() {
-  
   const [carousel, setCarousel] = useState([]);
 
-  useEffect(() => {    
+  useEffect(() => {
     fetch("https://sidv-website-api.azurewebsites.net/api/carousel")
-      .then(response => response.json())
-      .then(json => setCarousel(json))
-      .catch(error => console.log('error with fetch', error));
-    }, []);
-  
+      .then((response) => response.json())
+      .then((json) => setCarousel(json))
+      .catch((error) => console.log("error with fetch", error));
+  }, []);
+
   const carouselPics = carousel.map((pic, i) => {
-    return (
-      <img src={pic} alt={i} key={i} />
-    );
-  })
+    return <img src={pic.link} alt={i} key={i} />;
+  });
 
   return (
     <div className="Home">

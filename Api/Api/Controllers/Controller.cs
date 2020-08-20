@@ -90,7 +90,7 @@ namespace Api.Controllers
         [HttpGet("carousel")]
         public string GetCarousel()
         {
-            var client = new RestClient("https://sidvwebsitestorage.blob.core.windows.net/websitedata/gallery.json");
+            var client = new RestClient("https://sidvwebsitestorage.blob.core.windows.net/websitedata/carousel.json");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
