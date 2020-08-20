@@ -8,6 +8,7 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using TinifyAPI;
 
 namespace Api.Controllers
 {
@@ -72,5 +73,45 @@ namespace Api.Controllers
             JToken json = JToken.Parse(response.Content);
             return json.ToString();
         }
+
+        [HttpGet("gallery")]
+        public string GetGallery()
+        {
+            var client = new RestClient("https://sidvwebsitestorage.blob.core.windows.net/websitedata/gallery.json");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            IRestResponse response = client.Execute(request);
+            //Console.WriteLine(response.Content);
+            Console.WriteLine("Returning gallery pics...");
+            JToken json = JToken.Parse(response.Content);
+            return json.ToString();
+        }
+
+        [HttpGet("carousel")]
+        public string GetCarousel()
+        {
+            var client = new RestClient("https://sidvwebsitestorage.blob.core.windows.net/websitedata/gallery.json");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            IRestResponse response = client.Execute(request);
+            //Console.WriteLine(response.Content);
+            Console.WriteLine("Returning carousel pics...");
+            JToken json = JToken.Parse(response.Content);
+            return json.ToString();
+        }
+
+        /*
+        [HttpGet("tinifyimage")]
+        public async void GetTinifyImage(string name)
+        {
+            Tinify.Key = "yFd23Nxh511QgrCBd68SvYKt3rxG0vjB";
+            name = "https://sidvwebsitestorage.blob.core.windows.net/websitegallery/pic1.JPG";
+            var source = Tinify.FromUrl(name);
+            Console.WriteLine(System.IO.Path.GetFileName(name));
+            await source.ToFile("optimized/pic1.jpg");
+            Console.WriteLine("returning tiny");
+        }
+        */
+
     }
 }

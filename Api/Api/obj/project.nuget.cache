@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UsGzQBsHk6n7m96sTj78gCj2auuuN0KgUdDK8dSk8Jeb0R4qEsWyMWJQCK5Gk0RTDY7bvrttLiZeIs+bgiWk3Q==",
+  "dgSpecHash": "ksfY+oi1/agSgQOOPJr+z+Ig5rOdx+a4kQAYg0g/SGb3ScsbtCzLDHX4phEGHzpdKvR3DB38cSW7//3Jhm4WnQ==",
   "success": true,
   "projectFilePath": "C:\\GitProjects\\website\\Api\\Api\\Api.csproj",
   "expectedPackageFiles": [
@@ -124,7 +124,8 @@
     "C:\\Users\\sidv1\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\sidv1\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\sidv1\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\sidv1\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\sidv1\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\sidv1\\.nuget\\packages\\tinify\\1.5.2\\tinify.1.5.2.nupkg.sha512"
   ],
   "logs": []
 }

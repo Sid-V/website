@@ -2,12 +2,6 @@ import React, {useState, useEffect} from "react";
 import { Item, Icon, List } from "semantic-ui-react";
 import "./App.css";
 
-import logo_purdue from "./assets/logo_purdue.png";
-import logo_codecafe from "./assets/logo_codecafe.jpg";
-import logo_helloworld from "./assets/logo_helloworld.png";
-
-const logoArray = [logo_purdue, logo_purdue, logo_codecafe, logo_helloworld]
-
 export function Teaching() {
   
   const [teaching, setTeaching] = useState([]);
@@ -23,7 +17,7 @@ export function Teaching() {
   const teachingItems = teaching.map((teach, i) => {
     return (
       <Item key={i}>
-        <Item.Image size="medium" src={logoArray[i]} />
+        <Item.Image size="medium" src={teach.image} />
         <Item.Content>
           <Item.Header>{teach.header}</Item.Header>
           <Item.Meta>{teach.headermeta}</Item.Meta>

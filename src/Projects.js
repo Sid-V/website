@@ -2,13 +2,6 @@ import React, {useEffect, useState} from "react";
 import { Item, Icon, Grid, List, Embed, Modal, Header, Divider } from "semantic-ui-react";
 import "./App.css";
 
-import twister from "./assets/twister.png";
-import tracer from "./assets/tracer.jpg";
-import autoknoby from "./assets/autoknoby.PNG";
-import go_out from "./assets/go_out.PNG";
-
-const logoArray = [ twister, tracer, autoknoby, go_out ]
-
 export function Projects() {
 
   const [project, setProject] = useState([]);
@@ -24,7 +17,7 @@ export function Projects() {
     const projectItems = project.map((proj, i) => {
       return (
         <Item key={i}>
-          <Item.Image size="large" src={logoArray[i]} />
+          <Item.Image size="large" src={proj.image} />
           <Item.Content>
             <Item.Header>{proj.header}</Item.Header>
             <Divider />

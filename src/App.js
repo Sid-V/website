@@ -7,7 +7,7 @@ import WelcomeMessage from "./Welcome.js";
 import {Projects} from "./Projects.js";
 import Resume from "./Resume.js";
 import Navbar from "./Navbar.js";
-import Home from "./Home.js";
+import {Home} from "./Home.js";
 import {Experience} from "./Experience.js";
 import Links from "./Links.js";
 import {Gallery} from "./Gallery.js";

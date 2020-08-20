@@ -2,15 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Item, Icon, Grid, Divider, List } from "semantic-ui-react";
 import "./App.css";
 
-import logo_microsoft from "./assets/logo_microsoft.jpg";
-import logo_qualcomm from "./assets/logo_qualcomm.jpg";
-import logo_planys from "./assets/logo_planys.png";
-import logo_spi from "./assets/logo_spi.jpg";
-import logo_epics from "./assets/logo_epics.png";
-import logo_infosys from "./assets/logo_infosys.png";
-
-const logoArray = [ logo_microsoft, logo_microsoft, logo_qualcomm, logo_epics, logo_planys, logo_spi, logo_infosys]
-
 export function Experience() {
 
   const [experience, setExperience] = useState([]);
@@ -26,7 +17,7 @@ export function Experience() {
     const ExpItems = experience.map((exp, i) => {
       return(
         <Item key={i}>
-          <Item.Image size="medium" src={logoArray[i]} />
+          <Item.Image size="medium" src={exp.image} />
           <Item.Content>
            <Item.Header>{exp.header}</Item.Header>
             <Item.Meta>{exp.headermeta}</Item.Meta>
