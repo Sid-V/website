@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Header, Grid, Flag, Divider, Container } from "semantic-ui-react";
+import { Header, Grid, Flag, Divider, Container, Loader } from "semantic-ui-react";
 
 import "./App.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -8,11 +8,15 @@ import { Carousel } from "react-responsive-carousel";
 
 export function Home() {
   const [carousel, setCarousel] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     fetch("https://sidv-website-api.azurewebsites.net/api/carousel")
       .then((response) => response.json())
-      .then((json) => setCarousel(json))
+      .then((json) => {
+        setCarousel(json);
+        setIsLoaded(true);
+      })
       .catch((error) => console.log("error with fetch", error));
   }, []);
 
@@ -30,6 +34,7 @@ export function Home() {
         </big>
       </Header>
       <div className="padded-grid">
+        <Loader active={!isLoaded} />
         <Container fluid>
           <Grid centered columns={2} padded divided doubling>
             <Grid.Row>

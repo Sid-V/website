@@ -1,38 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { Card, Grid, Container, GridRow } from "semantic-ui-react";
+import { Card, Grid, Container, GridRow, Dimmer, Loader } from "semantic-ui-react";
 import "./App.css";
 
 export function Courses() {
-
   const [courses, setCourses] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {    
+  useEffect(() => {
     fetch("https://sidv-website-api.azurewebsites.net/api/courses")
-      .then(response => response.json())
-      .then(json => setCourses(json))
-      .catch(error => console.log('error with fetch', error));
-    }, []);
+      .then((response) => response.json())
+      .then((json) => {
+        setCourses(json);
+        setIsLoaded(true);
+      })
+      .catch((error) => console.log("error with fetch", error));
+  }, []);
 
-    const courseCards = courses.map((course, i) => {
-      return (
-        <Card centered key={i}>
-          <Card.Content header={course.name} />
-          <Card.Content description={course.description} />
-        </Card>
-      )
-    })
-    
+  const courseCards = courses.map((course, i) => {
     return (
-      <div className="padded-grid font-medium">
-        <Container>
-          <Grid columns={2} stackable doubling relaxed>
-            <GridRow>
-              <Card.Group itemsPerRow={2}>
-              {courseCards}
-              </Card.Group>
-            </GridRow>
-          </Grid>
-        </Container>   
-      </div>
-    ); 
+      <Card centered key={i}>
+        <Card.Content header={course.name} />
+        <Card.Content description={course.description} />
+      </Card>
+    );
+  });
+
+  return (
+    <div className="padded-grid font-medium">
+      <Loader active={!isLoaded} content="Loading" />
+      <Container>
+        <Grid columns={2} stackable doubling relaxed>
+          <GridRow>
+            <Card.Group itemsPerRow={2}>{isLoaded && courseCards}</Card.Group>
+          </GridRow>
+        </Grid>
+      </Container>
+    </div>
+  );
 }
