@@ -13,10 +13,10 @@ import Links from "./Links.js";
 import {Gallery} from "./Gallery.js";
 import {Teaching} from "./Teaching.js";
 import {Courses} from "./Courses.js";
+import {Spotify} from "./Spotify.js";
 
 //TODO
-//Add WelcomeMessage later
-
+//SPOTIFY INPUT SLIDER
 //MOBILE EXPERIENCE
 
 export default class App extends React.Component {
@@ -35,6 +35,7 @@ export default class App extends React.Component {
               <Route path="/resume" component={Resume} />
               <Route path="/teaching" component={Teaching} />
               <Route path="/courses" component={Courses} />
+              <Route path="/spotify" component={Spotify} />
             </Switch>
           </div>
           <Divider />

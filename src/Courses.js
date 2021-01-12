@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Grid, Container, GridRow, Dimmer, Loader } from "semantic-ui-react";
+import { Card, Grid, Container, GridRow, Loader } from "semantic-ui-react";
 import "./App.css";
 
 export function Courses() {

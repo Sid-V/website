@@ -90,6 +90,17 @@ export default class Navbar extends Component {
         >
           Courses
         </Menu.Item>
+
+        <Menu.Item
+          as={Link}
+          to="/spotify"
+          name="Spotify"
+          active={activeItem === "Spotify"}
+          onClick={this.handleItemClick}
+          color='purple'
+        >
+          Spotify Recommender
+        </Menu.Item>
       </Menu>
     );
   }
