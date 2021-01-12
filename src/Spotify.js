@@ -43,9 +43,9 @@ export function Spotify() {
       <Modal basic open={openModal} size='small'>
         <Modal.Content>
           <p>
-            <h3>I listen to a lot of music and wanted to create a fun way to share it with you all. </h3>
-            <h3>So I created a Spotify Recommender Engine that takes in a bunch of parameters and picks 9 songs from my massive library of songs that are most similar to what you want to listen it</h3>
-            <h3>Each of these parameters takes a value from 0 to 10</h3>
+            <h3>I listen to a lot of music and wanted to create a fun way to share it with you all </h3>
+            <h3>So, I created a Spotify Song Recommender Engine that takes in a bunch of parameters and picks 9 songs from my library that are most similar to what you want to listen to</h3>
+            <h3>Each of these parameters are normalized and take a value from 0 to 10</h3>
             <ul>
               <li>Danceability - How suitable a track is for dancing</li>
               <li>Energy - Measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy.</li>
