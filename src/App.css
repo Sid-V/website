@@ -33,6 +33,12 @@
   text-align: end;
 }
 
+.center-align {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
 .thicc-border {
   border-radius: 2%;
   border-color: black;

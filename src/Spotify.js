@@ -27,7 +27,6 @@ export function Spotify() {
       <iframe src="https://open.spotify.com/embed/playlist/723DFjIwZzBqoIHezixZ0j" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media" />
     </Card>
     <Divider hidden/>
-    <h3>My Recommendations</h3>
     </>
     );
   }
@@ -68,14 +67,15 @@ export function Spotify() {
       
       <Container>
         <Grid columns={3} stackable doubling relaxed>
+          <Grid.Row centered>
+            <h3>Recommendations</h3>
+            <Card.Group stackable doubling itemsPerRow={3}>{formSubmitted && songCards}</Card.Group>
+          </Grid.Row>
           <Grid.Row columns={1}>
             <Grid.Column stretched>
               {formSubmitted && flagshipPlaylist()}
             </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Card.Group stackable doubling itemsPerRow={3}>{formSubmitted && songCards}</Card.Group>
-          </Grid.Row>
+          </Grid.Row>          
         </Grid>
       </Container>
     </div>
