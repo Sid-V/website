@@ -34,13 +34,13 @@ export default class SpotifyForm extends React.Component {
   }
   
   handleChange = (e, { name, value }) => {
-    console.log(name, value);
+    //console.log(name, value);
     this.setState({ [name] : value });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    //console.log(this.state);
     let self = this;
     
     var myHeaders = new Headers();
@@ -66,7 +66,7 @@ export default class SpotifyForm extends React.Component {
       .then(response => response.text())
 
       .then(result => {
-        console.log(result);
+        //console.log(result);
         self.setState({embedString: result});
       })
       .then(function(res)
