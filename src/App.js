@@ -16,8 +16,6 @@ import {Courses} from "./Courses.js";
 import {Spotify} from "./Spotify.js";
 
 //TODO
-//SPOTIFY INPUT SLIDER
-//MOBILE EXPERIENCE
 
 export default class App extends React.Component {
   render() {

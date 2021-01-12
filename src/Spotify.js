@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import InputSlider from "react-input-slider";
+
 import { Card, Grid, Container, Divider, Modal, Button, Icon, Form } from "semantic-ui-react";
 import "./App.css";
 import SpotifyForm from "./SpotifyForm";
@@ -10,10 +10,9 @@ export function Spotify() {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const songCards = spotify.map((item, i) => {
-    console.log(item)
     return (
       <Card centered key={i} fluid>
-        <iframe src={item} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" />
+        <iframe src={item} height="380" width="300" marginWidth="30" frameborder="0" allowtransparency="true" allow="encrypted-media" />
       </Card>
     );
   });
@@ -64,8 +63,7 @@ export function Spotify() {
         </Modal.Actions>
       </Modal>
 
-      { !formSubmitted && (<SpotifyForm formSubmitted={formSubmitted} handleCallback={callbackHandler}/>) ||
-      console.log(formSubmitted)
+      { !formSubmitted && (<SpotifyForm formSubmitted={formSubmitted} handleCallback={callbackHandler}/>)
       }
       
       <Container>
@@ -76,7 +74,7 @@ export function Spotify() {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Card.Group itemsPerRow={3}>{formSubmitted && songCards}</Card.Group>
+            <Card.Group stackable doubling itemsPerRow={3}>{formSubmitted && songCards}</Card.Group>
           </Grid.Row>
         </Grid>
       </Container>

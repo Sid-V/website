@@ -1,58 +1,47 @@
-import React from "react";
-import { Form, Message, Divider, Container } from "semantic-ui-react";
+import React, { useState } from "react";
+import { Form, Message, Divider, Container, Label } from "semantic-ui-react";
 import "./App.css";
-
-const options = [
-  { key: '0', text: '0', value: '0' },
-  { key: '1', text: '1', value: '1' },
-  { key: '2', text: '2', value: '2' },
-  { key: '3', text: '3', value: '3' },
-  { key: '4', text: '4', value: '4' },
-  { key: '5', text: '5', value: '5' },
-  { key: '6', text: '6', value: '6' },
-  { key: '7', text: '7', value: '7' },
-  { key: '8', text: '8', value: '8' },
-  { key: '9', text: '9', value: '9' },
-  { key: '10', text: '10', value: '10' }
-]
+import { Slider } from "@material-ui/core";
 
 export default class SpotifyForm extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
-      danceability: "0",
-      energy: "0",
-      speechiness: "0",
-      acousticness: "0",
-      instrumentalness: "0",
-      tempo: "0",
+      danceability: 0,
+      energy: 0,
+      speechiness: 0,
+      acousticness: 0,
+      instrumentalness: 0,
+      tempo: 0,
       formSubmitted: this.props.formSubmitted,
       embedString: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSliderChange = this.handleSliderChange.bind(this);
+
   }
-  
-  handleChange = (e, { name, value }) => {
-    //console.log(name, value);
-    this.setState({ [name] : value });
+
+
+  handleSliderChange =  slidername  => (e, value) => {
+    this.setState({ [slidername] : value})
   }
+
 
   handleSubmit = (event) => {
     event.preventDefault();
-    //console.log(this.state);
     let self = this;
     
     var myHeaders = new Headers();
     myHeaders.append("Access-Control-Allow-Origin", "*");
     
     var formdata = new FormData();
-    formdata.append("danceability", parseFloat(this.state.danceability)/10.0);
-    formdata.append("energy", parseFloat(this.state.energy)/10.0);
-    formdata.append("speechiness", parseFloat(this.state.speechiness)/10.0);
-    formdata.append("acousticness", parseFloat(this.state.acousticness)/10.0);
-    formdata.append("instrumentalness", parseFloat(this.state.instrumentalness)/10.0);
-    formdata.append("tempo", parseFloat(this.state.tempo)/10.0);
+    formdata.append("danceability", this.state.danceability/10.0);
+    formdata.append("energy", this.state.energy/10.0);
+    formdata.append("speechiness", this.state.speechiness/10.0);
+    formdata.append("acousticness", this.state.acousticness/10.0);
+    formdata.append("instrumentalness", this.state.instrumentalness/10.0);
+    formdata.append("tempo", this.state.tempo/10.0);
 
     
     var requestOptions = {
@@ -73,46 +62,54 @@ export default class SpotifyForm extends React.Component {
       {
         self.setState({formSubmitted: true})
         self.props.handleCallback(self.state.formSubmitted, self.state.embedString);
-        //self.resetForm();
+        self.resetForm();
       })
       .catch(error => console.log('error', error));
   };
 
   resetForm() {
-    this.setState({ danceability: "0", energy: "0", speechiness: "0", acousticness: "0",  instrumentalness: "0", tempo: "0"});
+    this.setState({ danceability: 7, energy: 8, speechiness: 2, acousticness: 3,  instrumentalness: 1, tempo: 5});
   }
+
+
 
   render() {
     const { danceability, energy, speechiness, acousticness, instrumentalness, tempo } = this.state;
+
     return (
       <div className="form">
         <Container>
         <Form onSubmit={this.handleSubmit} success={this.state.formSubmitted} target="_blank">
           <Form.Field>
-            <Form.Select value={danceability} name="danceability" options={options} label='Danceability' fluid onChange={this.handleChange}/> 
-          </Form.Field>     
-          <Form.Field>
-            <Form.Select value={energy} name="energy"  options={options} label='Energy' fluid onChange={this.handleChange}/> 
+            <Label content="Danceability" size="large"/>
+            <Slider defaultValue={7} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="danceability" onChangeCommitted={this.handleSliderChange("danceability")} />
           </Form.Field>
           <Form.Field>
-            <Form.Select value={speechiness} name="speechiness" options={options} label='Vocalness' fluid onChange={this.handleChange}/> 
+            <Label content="Energy" size="large"/>
+            <Slider defaultValue={8} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="energy" onChangeCommitted={this.handleSliderChange("energy")} />
           </Form.Field> 
           <Form.Field>
-            <Form.Select value={acousticness} name="acousticness" options={options} label='Acousticness' fluid onChange={this.handleChange}/> 
+            <Label content="speechiness" size="large"/>
+            <Slider defaultValue={2} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="speechiness" onChangeCommitted={this.handleSliderChange("speechiness")} />
           </Form.Field> 
           <Form.Field>
-            <Form.Select value={instrumentalness} name="instrumentalness" options={options} label='Instrumentalness' fluid onChange={this.handleChange}/> 
+            <Label content="acousticness" size="large"/>
+            <Slider defaultValue={3} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="acousticness" onChangeCommitted={this.handleSliderChange("acousticness")} />
           </Form.Field> 
           <Form.Field>
-            <Form.Select value={tempo} name="tempo" options={options} label='Tempo' fluid onChange={this.handleChange}/> 
-          </Form.Field>      
-        
+            <Label content="instrumentalness" size="large"/>
+            <Slider defaultValue={1} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="instrumentalness" onChangeCommitted={this.handleSliderChange("instrumentalness")} />
+          </Form.Field> 
+          <Form.Field>
+            <Label content="tempo" size="large"/>
+            <Slider defaultValue={5} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="tempo" onChangeCommitted={this.handleSliderChange("tempo")} />
+          </Form.Field>                                                        
           <Divider hidden />
           <Message
             success
             header="Hold on!"
           />
-          <Form.Button content="Submit"/>
+          <Form.Button primary content="Submit"/>
         </Form>
         </Container>
       </div>

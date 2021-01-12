@@ -31,7 +31,7 @@ export function Courses() {
       <Container>
         <Grid columns={2} stackable doubling relaxed>
           <GridRow>
-            <Card.Group itemsPerRow={2}>{isLoaded && courseCards}</Card.Group>
+            <Card.Group stackable doubling itemsPerRow={2}>{isLoaded && courseCards}</Card.Group>
           </GridRow>
         </Grid>
       </Container>
