@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Message, Divider, Container, Label } from "semantic-ui-react";
+import { Form, Message, Divider, Container, Label, Loader } from "semantic-ui-react";
 import "./App.css";
 import { Slider } from "@material-ui/core";
 
@@ -15,7 +15,8 @@ export default class SpotifyForm extends React.Component {
       instrumentalness: 0,
       tempo: 0,
       formSubmitted: this.props.formSubmitted,
-      embedString: ""
+      embedString: "",
+      isLoaded: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSliderChange = this.handleSliderChange.bind(this);
@@ -31,6 +32,7 @@ export default class SpotifyForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     let self = this;
+    this.setState({isLoaded: false})
     
     var myHeaders = new Headers();
     myHeaders.append("Access-Control-Allow-Origin", "*");
@@ -53,14 +55,13 @@ export default class SpotifyForm extends React.Component {
 
     fetch("https://sidv.pythonanywhere.com/spotifyRecommendations/", requestOptions)
       .then(response => response.text())
-
       .then(result => {
         //console.log(result);
         self.setState({embedString: result});
       })
       .then(function(res)
       {
-        self.setState({formSubmitted: true})
+        self.setState({formSubmitted: true, isLoaded: true})
         self.props.handleCallback(self.state.formSubmitted, self.state.embedString);
         self.resetForm();
       })
@@ -76,6 +77,7 @@ export default class SpotifyForm extends React.Component {
   render() {
     return (
       <div className="form">
+        <Loader active={!this.state.isLoaded} content="Loading" />
         <Container>
         <Form onSubmit={this.handleSubmit} success={this.state.formSubmitted} target="_blank">
           <Form.Field>
@@ -102,7 +104,7 @@ export default class SpotifyForm extends React.Component {
             <Label content="tempo" size="large"/>
             <Slider defaultValue={5} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="tempo" onChangeCommitted={this.handleSliderChange("tempo")} />
           </Form.Field>                                                        
-          <Divider hidden />
+          <Divider hidden /> 
           <Message
             success
             header="Hold on!"
