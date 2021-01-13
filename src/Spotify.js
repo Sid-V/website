@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { Card, Grid, Container, Divider, Modal, Button, Icon } from "semantic-ui-react";
 import "./App.css";
 import SpotifyForm from "./SpotifyForm";
@@ -40,7 +39,7 @@ export function Spotify() {
   return (
     <div className="padded-grid font-medium">
       <Modal basic onClose={()=> setOpenModal(false)}
-      open={openModal} size='small'>
+      open={openModal} size='small' closeIcon>
         <Modal.Content>
           <p>
             <h3>I listen to a lot of music and wanted to create a fun way to share it with you all </h3>
