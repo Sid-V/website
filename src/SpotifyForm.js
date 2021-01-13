@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Message, Divider, Container, Label } from "semantic-ui-react";
 import "./App.css";
 import { Slider } from "@material-ui/core";
@@ -74,8 +74,6 @@ export default class SpotifyForm extends React.Component {
 
 
   render() {
-    const { danceability, energy, speechiness, acousticness, instrumentalness, tempo } = this.state;
-
     return (
       <div className="form">
         <Container>

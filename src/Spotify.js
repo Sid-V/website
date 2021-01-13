@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Card, Grid, Container, Divider, Modal, Button, Icon, Form } from "semantic-ui-react";
+import { Card, Grid, Container, Divider, Modal, Button, Icon } from "semantic-ui-react";
 import "./App.css";
 import SpotifyForm from "./SpotifyForm";
 
@@ -12,7 +12,7 @@ export function Spotify() {
   const songCards = spotify.map((item, i) => {
     return (
       <Card centered key={i} fluid>
-        <iframe src={item} height="380" width="300" marginWidth="30" frameborder="0" allowtransparency="true" allow="encrypted-media" />
+        <iframe title={i} src={item} height="380" width="300" marginWidth="30" frameborder="0" allowtransparency="true" allow="encrypted-media" />
       </Card>
     );
   });
@@ -24,7 +24,7 @@ export function Spotify() {
     <h3>My Flagship Playlist</h3>
     <h5>Check out my other playlists in my spotify profile by clicking below</h5>
     <Card centered fluid>
-      <iframe src="https://open.spotify.com/embed/playlist/723DFjIwZzBqoIHezixZ0j" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media" />
+      <iframe title="flagshipPlaylist" src="https://open.spotify.com/embed/playlist/723DFjIwZzBqoIHezixZ0j" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media" />
     </Card>
     <Divider hidden/>
     </>
@@ -39,7 +39,8 @@ export function Spotify() {
 
   return (
     <div className="padded-grid font-medium">
-      <Modal basic open={openModal} size='small'>
+      <Modal basic onClose={()=> setOpenModal(false)}
+      open={openModal} size='small'>
         <Modal.Content>
           <p>
             <h3>I listen to a lot of music and wanted to create a fun way to share it with you all </h3>
@@ -68,7 +69,7 @@ export function Spotify() {
       <Container>
         <Grid columns={3} stackable doubling relaxed>
           <Grid.Row centered>
-            <h3>Recommendations</h3>
+            { formSubmitted && <h3>Recommendations</h3>}
             <Card.Group stackable doubling itemsPerRow={3}>{formSubmitted && songCards}</Card.Group>
           </Grid.Row>
           <Grid.Row columns={1}>
