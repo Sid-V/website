@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Divider } from "semantic-ui-react";
 
 import WelcomeMessage from "./Welcome.js";
@@ -25,16 +25,16 @@ export default class App extends React.Component {
           <Navbar />
           <Divider hidden />
           <div className="App-content">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/gallery" component={Gallery} />
-              <Route path="/experience" component={Experience} />
-              <Route path="/projects" component={Projects} />
-              <Route path="/resume" component={Resume} />
-              <Route path="/teaching" component={Teaching} />
-              <Route path="/courses" component={Courses} />
-              <Route path="/spotify" component={Spotify} />
-            </Switch>
+            <Routes>
+              <Route exact path='/' element={<Home/>} />
+              <Route path='/gallery' element={<Gallery/>} />
+              <Route path='/experience' element={<Experience/>} />
+              <Route path='/projects' element={<Projects/>} />
+              <Route path='/resume' element={Resume} />
+              <Route path='/teaching' element={<Teaching/>} />
+              <Route path='/courses' element={<Courses/>} />
+              <Route path='/spotify' element={<Spotify/>} />
+            </Routes>
           </div>
           <Divider />
           <Links />

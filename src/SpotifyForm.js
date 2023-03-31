@@ -50,10 +50,11 @@ export default class SpotifyForm extends React.Component {
       method: 'POST',
       headers: myHeaders,
       body: formdata,
-      redirect: 'follow',
+      redirect: 'follow'
     };
-
-    fetch("https://sidv.pythonanywhere.com/spotifyRecommendations/", requestOptions)
+    //sidv1799.pythonanywhere.com
+    
+    fetch("https://sidv1799.pythonanywhere.com/spotifyRecommendations/", requestOptions)
       .then(response => response.text())
       .then(result => {
         //console.log(result);

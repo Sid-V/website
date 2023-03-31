@@ -5,7 +5,7 @@ import numpy as np
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from flask import request
-from flask import CORS
+from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
@@ -49,7 +49,7 @@ def returnRecommendations():
         recString += string
         if rec is not rec_ids[-1]:
             recString += ','
-        
+
     print("Python execution complete. Sending top 9 recommendations...")
     return recString
 
