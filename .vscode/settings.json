@@ -1,5 +1,7 @@
 {
     "python.analysis.typeCheckingMode": "basic",
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/4efe00e9-c35c-4132-99e5-c3cef23ddd7a/resourceGroups/Website/providers/Microsoft.Web/sites/sidv-spotify",
+    "appService.deploySubpath": "recommendation"
 }

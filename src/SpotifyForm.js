@@ -52,9 +52,11 @@ export default class SpotifyForm extends React.Component {
       body: formdata,
       redirect: 'follow'
     };
-    //sidv1799.pythonanywhere.com
     
-    fetch("https://sidv1799.pythonanywhere.com/spotifyRecommendations/", requestOptions)
+    // https://sidv-spotify.azurewebsites.net/
+    //https://sidv1799.pythonanywhere.com/spotifyRecommendations/
+
+    fetch("https://sidv-spotify.azurewebsites.net/spotifyRecommendations/", requestOptions)
       .then(response => response.text())
       .then(result => {
         //console.log(result);
@@ -68,7 +70,7 @@ export default class SpotifyForm extends React.Component {
       })
       .catch(error => console.log('error', error));
   };
-
+  
   resetForm() {
     this.setState({ danceability: 7, energy: 8, speechiness: 2, acousticness: 3,  instrumentalness: 1, tempo: 5});
   }
