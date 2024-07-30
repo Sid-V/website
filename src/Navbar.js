@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import resumeDownload from "./assets/Resume_Sidharth_Venkatesh_Summer2020.pdf";
+import resumeDownload from "./assets/Resume-SidharthVenkatesh.pdf";
 
-//resume link: https://drive.google.com/open?id=1qxgsbqucXccKLcHIOhPdimjkNTSEUAku
+//resume link: https://drive.google.com/file/d/1tZS6eP_4kE6Trp895IaJJJgiGisn7XCE/view?usp=sharing
 
 export default class Navbar extends Component {
   state = {};
