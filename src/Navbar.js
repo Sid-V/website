@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import resumeDownload from "./assets/Resume-SidharthVenkatesh.pdf";
+import resumelink from "./assets/Resume_Sidharth_Venkatesh.pdf";
 
-//resume link: https://drive.google.com/file/d/1tZS6eP_4kE6Trp895IaJJJgiGisn7XCE/view?usp=sharing
+//resume link: https://drive.google.com/file/d/1pkxYOFZMZ5-fX420o5bhyHoPbmG3RXDR/view?usp=sharing
 
 export default class Navbar extends Component {
   state = {};
@@ -37,13 +37,12 @@ export default class Navbar extends Component {
         </Menu.Item>
 
         <Menu.Item
-          href={resumeDownload}
+          href={resumelink}
           name="Resume"
           target="_blank"
           rel="noopener noreferrer"
           active={activeItem === "Resume"}
           onClick={this.handleItemClick}
-          download
           color='purple'
         >
           Resume
