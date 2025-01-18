@@ -21,7 +21,7 @@ export function Spotify() {
   {
     return (
     <>
-    <h3>My Flagship Playlist</h3>
+    <h3>My top songs playlist!</h3>
     <h5>Check out my other playlists in my spotify profile by clicking below</h5>
     <Card centered fluid>
       <iframe title="flagshipPlaylist" src="https://open.spotify.com/embed/playlist/723DFjIwZzBqoIHezixZ0j" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media" />

@@ -26,17 +26,6 @@ export default class Navbar extends Component {
         </Menu.Item>
 
         <Menu.Item
-          as={Link}
-          to="/gallery"
-          name="Gallery"
-          active={activeItem === "Gallery"}
-          onClick={this.handleItemClick}
-          color='purple'
-        >
-          Gallery
-        </Menu.Item>
-
-        <Menu.Item
           href={resumelink}
           name="Resume"
           target="_blank"

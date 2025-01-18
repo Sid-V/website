@@ -51,7 +51,7 @@ export default class Links extends React.Component {
             </Grid.Column>
             <Grid.Column>
               <a
-                href="mailto:sidv@purdue.edu"
+                href="mailto:sidv1799@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="padded-links"

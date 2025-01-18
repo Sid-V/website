@@ -29,50 +29,65 @@ export default class SpotifyForm extends React.Component {
   }
 
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    let self = this;
-    this.setState({isLoaded: false})
+    this.setState({isLoaded: false});
     
-    var myHeaders = new Headers();
-    myHeaders.append("Access-Control-Allow-Origin", "*");
-    
-    var formdata = new FormData();
-    formdata.append("danceability", this.state.danceability/10.0);
-    formdata.append("energy", this.state.energy/10.0);
-    formdata.append("speechiness", this.state.speechiness/10.0);
-    formdata.append("acousticness", this.state.acousticness/10.0);
-    formdata.append("instrumentalness", this.state.instrumentalness/10.0);
-    formdata.append("tempo", this.state.tempo/10.0);
+    try {
+      const formdata = new FormData();
+      const parameters = ['danceability', 'energy', 'speechiness', 'acousticness', 'instrumentalness', 'tempo'];
+      
+      parameters.forEach(param => {
+        formdata.append(param, this.state[param]/10.0);
+      });
+      
+      const requestOptions = {
+        method: 'POST',
+        body: formdata,
+        // Adding timeout and better headers
+        timeout: 30000, // 30 second timeout
+        headers: {
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      };
 
-    
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: formdata,
-      redirect: 'follow'
-    };
-    
-    // https://sidv-spotify.azurewebsites.net/
-    //https://sidv1799.pythonanywhere.com/spotifyRecommendations/
+      // Using async/await for cleaner code
+      const response = await fetch("https://sidv-spotify.azurewebsites.net/spotifyRecommendations/", requestOptions);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const result = await response.text();
+      
+      this.setState({
+        embedString: result,
+        formSubmitted: true,
+        isLoaded: true
+      }, () => {
+        this.props.handleCallback(true, result);
+        this.resetForm();
+      });
 
-    fetch("https://sidv-spotify.azurewebsites.net/spotifyRecommendations/", requestOptions)
-      .then(response => response.text())
-      .then(result => {
-        //console.log(result);
-        self.setState({embedString: result});
-      })
-      .then(function(res)
-      {
-        self.setState({formSubmitted: true, isLoaded: true})
-        self.props.handleCallback(self.state.formSubmitted, self.state.embedString);
-        self.resetForm();
-      })
-      .catch(error => console.log('error', error));
+    } catch (error) {
+      console.error('Error:', error);
+      this.setState({
+        isLoaded: true,
+        error: 'Failed to fetch recommendations. Please try again.'
+      });
+    }
   };
   
   resetForm() {
-    this.setState({ danceability: 7, energy: 8, speechiness: 2, acousticness: 3,  instrumentalness: 1, tempo: 5});
+    this.setState({ 
+      danceability: Math.floor(Math.random() * 11),
+      energy: Math.floor(Math.random() * 11), 
+      speechiness: Math.floor(Math.random() * 11),
+      acousticness: Math.floor(Math.random() * 11),
+      instrumentalness: Math.floor(Math.random() * 11),
+      tempo: Math.floor(Math.random() * 11)
+    });
   }
 
 
@@ -80,32 +95,38 @@ export default class SpotifyForm extends React.Component {
   render() {
     return (
       <div className="form">
-        <Loader active={!this.state.isLoaded} content="Loading" />
+        <Loader active={!this.state.isLoaded} content="Finding your perfect songs..." />
+        {this.state.error && (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <p>{this.state.error}</p>
+          </Message>
+        )}
         <Container>
         <Form onSubmit={this.handleSubmit} success={this.state.formSubmitted} target="_blank">
           <Form.Field>
             <Label content="Danceability" size="large"/>
-            <Slider defaultValue={7} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="danceability" onChangeCommitted={this.handleSliderChange("danceability")} />
+            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="danceability" onChangeCommitted={this.handleSliderChange("danceability")} />
           </Form.Field>
           <Form.Field>
             <Label content="Energy" size="large"/>
-            <Slider defaultValue={8} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="energy" onChangeCommitted={this.handleSliderChange("energy")} />
+            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="energy" onChangeCommitted={this.handleSliderChange("energy")} />
           </Form.Field> 
           <Form.Field>
             <Label content="speechiness" size="large"/>
-            <Slider defaultValue={2} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="speechiness" onChangeCommitted={this.handleSliderChange("speechiness")} />
+            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="speechiness" onChangeCommitted={this.handleSliderChange("speechiness")} />
           </Form.Field> 
           <Form.Field>
             <Label content="acousticness" size="large"/>
-            <Slider defaultValue={3} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="acousticness" onChangeCommitted={this.handleSliderChange("acousticness")} />
+            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="acousticness" onChangeCommitted={this.handleSliderChange("acousticness")} />
           </Form.Field> 
           <Form.Field>
             <Label content="instrumentalness" size="large"/>
-            <Slider defaultValue={1} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="instrumentalness" onChangeCommitted={this.handleSliderChange("instrumentalness")} />
+            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="instrumentalness" onChangeCommitted={this.handleSliderChange("instrumentalness")} />
           </Form.Field> 
           <Form.Field>
             <Label content="tempo" size="large"/>
-            <Slider defaultValue={5} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="tempo" onChangeCommitted={this.handleSliderChange("tempo")} />
+            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="tempo" onChangeCommitted={this.handleSliderChange("tempo")} />
           </Form.Field>                                                        
           <Divider hidden /> 
           <Message

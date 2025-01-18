@@ -1,104 +1,85 @@
-import React from "react";
-import { Form, Header, Message, TextArea, Divider, Container } from "semantic-ui-react";
+import React, { useRef, useState } from "react";
+import { Form, Header, Message, TextArea, Divider, Container, Button } from "semantic-ui-react";
 import "./App.css";
-import emailjs from "emailjs-com";
+import emailjs from '@emailjs/browser';
 
-export default class ContactForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      message: "",
-      mailSent: false,
-      error: false,
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
+export const ContactForm = () => {
+  const form = useRef();
+  const [formStatus, setFormStatus] = useState({ success: false, error: false });
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value });
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(this.state);
-    let self = this;
-
-    if (!this.state.email.includes("@")) {
-      this.setState({ error: true, mailSent: false });
-      return;
-    }
-
-    var template_params = {
-      reply_to: this.state.email,
-      from_name: this.state.name,
-      to_name: "Sidharth",
-      message_html: this.state.message,
-      from_email: this.state.email,
-    };
-    var service_id = "default_service";
-    var template_id = "template_TgUIawZM";
-    var user_id = "user_cckrUVfxINzCY2vzgiljc";
+  const sendEmail = (e) => {
+    e.preventDefault();
 
     emailjs
-      .send(service_id, template_id, template_params, user_id)
-      .then(function (response) {
-        self.setState({ mailSent: true, error: false });
-        self.resetForm();
+      .sendForm('service_26b9n6c', 'template_h3kcibc', form.current, {
+        publicKey: 'aKxlUmdA1FUtvEx3v',
       })
-      .catch(function (error) {
-        self.setState({ error: true, mailSent: false });
-      });
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          setFormStatus({ success: true, error: false });
+          form.current.reset();
+        },
+        (error) => {
+          console.log('FAILED...', error);
+          setFormStatus({ success: false, error: true });
+        },
+      );
   };
 
-  resetForm() {
-    this.setState({ name: "", email: "", message: "" });
-  }
-
-  render() {
-    const { name, email, message } = this.state;
-
-    return (
-      <div className="form">
-        <Container>
-          <Header as="h3">Contact Form</Header>
-          <Form onSubmit={this.handleSubmit} success={this.state.mailSent} error={this.state.error}>
-            <Form.Input
+  return (
+    <div className="form-style">
+      <Container>
+        <Header as="h3">Contact Form</Header>        
+        <form ref={form} onSubmit={sendEmail} className="ui form">
+          <Form.Field>
+            <label>Name</label>
+            <input 
+              type="text" 
+              name="user_name" 
               placeholder="Name"
-              name="name"
-              value={name}
-              onChange={this.handleChange}
-              required
+              required 
             />
-            <Form.Input
+          </Form.Field>
+          
+          <Form.Field>
+            <label>Email</label>
+            <input 
+              type="email" 
+              name="user_email" 
               placeholder="Email"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-              required
+              required 
             />
-            <TextArea
+          </Form.Field>
+          
+          <Form.Field>
+            <label>Message</label>
+            <TextArea 
+              name="message" 
               placeholder="Your message"
-              name="message"
-              value={message}
-              onChange={this.handleChange}
-              required
+              required 
             />
-            <Divider hidden />
+          </Form.Field>
+          <Button type="submit" primary>Send</Button>
+        </form>
+        <Divider hidden />
+          {formStatus.success && (
             <Message
               success
               header="Message sent!"
               content="I will get back to you as soon as possible! :)"
             />
+          )}
+          {formStatus.error && (
             <Message
               error
               header="Message failed!"
               content="Please check your values and try again!"
             />
-            <Form.Button content="Submit" />
-          </Form>
-        </Container>
-      </div>
-    );
-  }
-}
+          )}
+      </Container>
+    </div>
+  );
+};
+
+export default ContactForm;
