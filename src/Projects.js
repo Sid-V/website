@@ -49,9 +49,9 @@ export function Projects() {
                       <Grid.Column key={i}>
                         <Modal
                           trigger={
-                            <a>
+                            <button style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#2185d0' }}>
                               <Icon link name="youtube play" size="big" />
-                            </a>
+                            </button>
                           }
                         >
                           <Modal.Header>{proj.header}</Modal.Header>

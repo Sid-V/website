@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Card, Grid, Container, Divider, Modal, Button, Icon } from "semantic-ui-react";
 import "./App.css";
 import SpotifyForm from "./SpotifyForm";
