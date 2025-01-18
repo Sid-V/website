@@ -3,7 +3,7 @@ import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import resumelink from "./assets/Resume_Sidharth_Venkatesh.pdf";
 
-//resume link: https://drive.google.com/file/d/1pkxYOFZMZ5-fX420o5bhyHoPbmG3RXDR/view?usp=sharing
+//resume link: https://drive.google.com/file/d/1fu2X8iBfjCujeFewxx9oW6kblxVspXl8/view?usp=sharing
 
 export default class Navbar extends Component {
   state = {};
