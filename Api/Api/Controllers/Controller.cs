@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Api.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Cosmos.Table;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using Microsoft.Extensions.Caching.Memory;
 using TinifyAPI;
 
 namespace Api.Controllers
@@ -16,88 +12,76 @@ namespace Api.Controllers
     [Route("api")]
     public class Controller : ControllerBase
     {
+        private readonly RestClient _client;
+        private readonly IMemoryCache _cache;
+        private const string BaseUrl = "https://sidvwebsitestorage.blob.core.windows.net/websitedata/";
+        private const int CacheExpirationMinutes = 60; // Adjust as needed
+
+        public Controller(IMemoryCache cache)
+        {
+            _cache = cache;
+            _client = new RestClient(BaseUrl);
+            _client.Timeout = -1;
+        }
+
+        private async Task<string> GetJsonFromBlobAsync(string path, string cacheKey)
+        {
+            if (_cache.TryGetValue(cacheKey, out string cachedResponse))
+            {
+                return cachedResponse;
+            }
+
+            var request = new RestRequest(path, Method.GET);
+            var response = await _client.ExecuteAsync(request);
+            var result = JToken.Parse(response.Content).ToString();
+            
+            var cacheOptions = new MemoryCacheEntryOptions()
+                .SetAbsoluteExpiration(TimeSpan.FromMinutes(CacheExpirationMinutes));
+            _cache.Set(cacheKey, result, cacheOptions);
+            
+            return result;
+        }
+
         [HttpGet("returnHello")]
         public string ReturnHello()
         {
-            return "Hello World! This API is working :) v2";
+            return "Hello World! This API is working :) v3";
         }
 
         [HttpGet("courses")]
-        public string GetCourses()
-        { 
-            var client = new RestClient("https://sidvwebsitestorage.blob.core.windows.net/websitedata/courses.json");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            IRestResponse response = client.Execute(request);
-            //Console.WriteLine(response.Content);
-            Console.WriteLine("Returning courses...");
-            JToken json = JToken.Parse(response.Content);
-            return json.ToString();  
+        public async Task<string> GetCourses()
+        {
+            return await GetJsonFromBlobAsync("courses.json", "courses");
         }
 
         [HttpGet("experience")]
-        public string GetExperience()
+        public async Task<string> GetExperience()
         {
-            var client = new RestClient("https://sidvwebsitestorage.blob.core.windows.net/websitedata/experience.json");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            IRestResponse response = client.Execute(request);
-            //Console.WriteLine(response.Content);
-            Console.WriteLine("Returning experience...");
-            JToken json = JToken.Parse(response.Content);
-            return json.ToString();
+            return await GetJsonFromBlobAsync("experience.json", "experience");
         }
 
         [HttpGet("projects")]
-        public string GetProjects()
+        public async Task<string> GetProjects()
         {
-            var client = new RestClient("https://sidvwebsitestorage.blob.core.windows.net/websitedata/projects.json");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            IRestResponse response = client.Execute(request);
-            //Console.WriteLine(response.Content);
-            Console.WriteLine("Returning projects...");
-            JToken json = JToken.Parse(response.Content);
-            return json.ToString();
+            return await GetJsonFromBlobAsync("projects.json", "projects");
         }
 
         [HttpGet("teaching")]
-        public string GetTeaching()
+        public async Task<string> GetTeaching()
         {
-            var client = new RestClient("https://sidvwebsitestorage.blob.core.windows.net/websitedata/teaching.json");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            IRestResponse response = client.Execute(request);
-            //Console.WriteLine(response.Content);
-            Console.WriteLine("Returning teaching...");
-            JToken json = JToken.Parse(response.Content);
-            return json.ToString();
+            return await GetJsonFromBlobAsync("teaching.json", "teaching");
         }
 
         [HttpGet("gallery")]
-        public string GetGallery()
+        public async Task<string> GetGallery()
         {
-            var client = new RestClient("https://sidvwebsitestorage.blob.core.windows.net/websitedata/gallery.json");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            IRestResponse response = client.Execute(request);
-            //Console.WriteLine(response.Content);
-            Console.WriteLine("Returning gallery pics...");
-            JToken json = JToken.Parse(response.Content);
-            return json.ToString();
+            return await GetJsonFromBlobAsync("gallery.json", "gallery");
         }
 
         [HttpGet("carousel")]
-        public string GetCarousel()
+        public async Task<string> GetCarousel()
         {
-            var client = new RestClient("https://sidvwebsitestorage.blob.core.windows.net/websitedata/carousel.json");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            IRestResponse response = client.Execute(request);
-            //Console.WriteLine(response.Content);
-            Console.WriteLine("Returning carousel pics...");
-            JToken json = JToken.Parse(response.Content);
-            return json.ToString();
+            return await GetJsonFromBlobAsync("carousel.json", "carousel");
         }
 
         /*
