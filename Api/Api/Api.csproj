@@ -12,5 +12,10 @@
     <PackageReference Include="Tinify" Version="1.5.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 
 </Project>
