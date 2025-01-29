@@ -94,7 +94,7 @@ export default class SpotifyForm extends React.Component {
 
   render() {
     return (
-      <div className="form">
+      <div className="form-style responsive-container">
         <Container>
           <Loader active={!this.state.isLoaded} content="Finding your perfect songs..." />
           {this.state.error && (
@@ -107,6 +107,7 @@ export default class SpotifyForm extends React.Component {
             onSubmit={this.handleSubmit} 
             success={this.state.formSubmitted} 
             target="_blank"
+            className="ui form"
           >
             <Form.Field>
               <Label content="Danceability" size="large"/>

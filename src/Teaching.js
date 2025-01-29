@@ -43,7 +43,7 @@ export function Teaching() {
   });
 
   return (
-    <div className="padded-grid">
+    <div className="padded-grid responsive-container">
       <Loader active={!isLoaded} content="Loading" />
       <Item.Group divided relaxed>
         {teachingItems}

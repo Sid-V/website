@@ -82,7 +82,7 @@ export function Projects() {
   });
 
   return (
-    <div className="padded-grid">
+    <div className="padded-grid responsive-container">
       <Loader active={!isLoaded} content="Loading" />
       <Item.Group divided relaxed>
         {projectItems}

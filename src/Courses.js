@@ -26,7 +26,7 @@ export function Courses() {
   });
 
   return (
-    <div className="padded-grid font-medium">
+    <div className="padded-grid font-medium responsive-container">
       <Loader active={!isLoaded} content="Loading" />
       <Container>
         <Grid columns={2} stackable doubling relaxed>

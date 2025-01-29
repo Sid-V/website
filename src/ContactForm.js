@@ -28,10 +28,10 @@ export const ContactForm = memo(() => {
   };
 
   return (
-    <div className="form-style">
+    <div className="form-style responsive-container">
       <Container>
         <Header as="h3">Contact Form</Header>        
-        <form ref={form} onSubmit={sendEmail} className="ui form">
+        <form ref={form} onSubmit={sendEmail} className="ui form mobile-friendly">
           <Form.Field>
             <label>Name</label>
             <input 

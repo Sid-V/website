@@ -6,7 +6,7 @@ import ContactForm from "./ContactForm";
 
 export function Home() {
   return (
-    <div className="Home">
+    <div className="Home responsive-container">
       <Header 
         as='h1' 
         size='huge'
@@ -25,11 +25,16 @@ export function Home() {
         <img 
           src="https://sidvwebsitestorage.blob.core.windows.net/websiteimages/home_pic.jpg"
           alt="Home"
+          className="responsive-image"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
           style={{
             maxWidth: '40%',
             height: 'auto',
-            margin: '20px 0',
-            padding: '15px'
+            margin: '20px auto',
+            padding: '15px',
+            display: 'block'
           }}
         />
       </div>
