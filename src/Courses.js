@@ -26,14 +26,12 @@ export function Courses() {
   });
 
   return (
-    <div className="padded-grid font-medium responsive-container">
+    <div>
       <Loader active={!isLoaded} content="Loading" />
       <Container>
-        <Grid columns={2} stackable doubling relaxed>
-          <GridRow>
-            <Card.Group stackable doubling itemsPerRow={2}>{isLoaded && courseCards}</Card.Group>
-          </GridRow>
-        </Grid>
+        <Card.Group stackable doubling itemsPerRow={2}>
+          {isLoaded && courseCards}
+        </Card.Group>
       </Container>
     </div>
   );
