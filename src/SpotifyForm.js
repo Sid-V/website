@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Message, Divider, Container, Label, Loader } from "semantic-ui-react";
 import "./App.css";
-import { Slider } from "@material-ui/core";
+import { Slider } from '@mui/material';
 
 export default class SpotifyForm extends React.Component {
   
@@ -95,46 +95,59 @@ export default class SpotifyForm extends React.Component {
   render() {
     return (
       <div className="form">
-        <Loader active={!this.state.isLoaded} content="Finding your perfect songs..." />
-        {this.state.error && (
-          <Message negative>
-            <Message.Header>Error</Message.Header>
-            <p>{this.state.error}</p>
-          </Message>
-        )}
         <Container>
-        <Form onSubmit={this.handleSubmit} success={this.state.formSubmitted} target="_blank">
-          <Form.Field>
-            <Label content="Danceability" size="large"/>
-            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="danceability" onChangeCommitted={this.handleSliderChange("danceability")} />
-          </Form.Field>
-          <Form.Field>
-            <Label content="Energy" size="large"/>
-            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="energy" onChangeCommitted={this.handleSliderChange("energy")} />
-          </Form.Field> 
-          <Form.Field>
-            <Label content="speechiness" size="large"/>
-            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="speechiness" onChangeCommitted={this.handleSliderChange("speechiness")} />
-          </Form.Field> 
-          <Form.Field>
-            <Label content="acousticness" size="large"/>
-            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="acousticness" onChangeCommitted={this.handleSliderChange("acousticness")} />
-          </Form.Field> 
-          <Form.Field>
-            <Label content="instrumentalness" size="large"/>
-            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="instrumentalness" onChangeCommitted={this.handleSliderChange("instrumentalness")} />
-          </Form.Field> 
-          <Form.Field>
-            <Label content="tempo" size="large"/>
-            <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="tempo" onChangeCommitted={this.handleSliderChange("tempo")} />
-          </Form.Field>                                                        
-          <Divider hidden /> 
-          <Message
-            success
-            header="Hold on!"
-          />
-          <Form.Button primary content="Submit"/>
-        </Form>
+          <Loader active={!this.state.isLoaded} content="Finding your perfect songs..." />
+          {this.state.error && (
+            <Message negative>
+              <Message.Header>Error</Message.Header>
+              <p>{this.state.error}</p>
+            </Message>
+          )}
+          <Form 
+            onSubmit={this.handleSubmit} 
+            success={this.state.formSubmitted} 
+            target="_blank"
+          >
+            <Form.Field>
+              <Label content="Danceability" size="large"/>
+              <Slider 
+                defaultValue={Math.floor(Math.random() * 11)} 
+                valueLabelDisplay="auto" 
+                step={0.5} 
+                marks={true} 
+                min={0} 
+                max={10}  
+                name="danceability" 
+                onChangeCommitted={this.handleSliderChange("danceability")} 
+              />
+            </Form.Field>
+            <Form.Field>
+              <Label content="Energy" size="large"/>
+              <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="energy" onChangeCommitted={this.handleSliderChange("energy")} />
+            </Form.Field> 
+            <Form.Field>
+              <Label content="speechiness" size="large"/>
+              <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="speechiness" onChangeCommitted={this.handleSliderChange("speechiness")} />
+            </Form.Field> 
+            <Form.Field>
+              <Label content="acousticness" size="large"/>
+              <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="acousticness" onChangeCommitted={this.handleSliderChange("acousticness")} />
+            </Form.Field> 
+            <Form.Field>
+              <Label content="instrumentalness" size="large"/>
+              <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="instrumentalness" onChangeCommitted={this.handleSliderChange("instrumentalness")} />
+            </Form.Field> 
+            <Form.Field>
+              <Label content="tempo" size="large"/>
+              <Slider defaultValue={Math.floor(Math.random() * 11)} valueLabelDisplay="auto" step={0.5} marks={true} min={0} max={10}  name="tempo" onChangeCommitted={this.handleSliderChange("tempo")} />
+            </Form.Field>                                                        
+            <Divider hidden /> 
+            <Message
+              success
+              header="Hold on!"
+            />
+            <Form.Button primary content="Submit"/>
+          </Form>
         </Container>
       </div>
     );

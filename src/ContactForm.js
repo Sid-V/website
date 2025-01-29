@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, memo } from "react";
 import { Form, Header, Message, TextArea, Divider, Container, Button } from "semantic-ui-react";
 import "./App.css";
 import emailjs from '@emailjs/browser';
 
-export const ContactForm = () => {
+export const ContactForm = memo(() => {
   const form = useRef();
   const [formStatus, setFormStatus] = useState({ success: false, error: false });
 
@@ -80,6 +80,6 @@ export const ContactForm = () => {
       </Container>
     </div>
   );
-};
+});
 
 export default ContactForm;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Divider } from "semantic-ui-react";
@@ -15,14 +15,14 @@ import {Spotify} from "./Spotify.js";
 
 //TODO
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <Router basename={process.env.PUBLIC_URL}>
-          <Navbar />
-          <Divider hidden />
-          <div className="App-content">
+export default function App() {
+  return (
+    <div className="App">
+      <Router basename={process.env.PUBLIC_URL}>
+        <Navbar />
+        <Divider hidden />
+        <div className="App-content">
+          <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               <Route exact path='/' element={<Home/>} />
               <Route path='/experience' element={<Experience/>} />
@@ -32,11 +32,11 @@ export default class App extends React.Component {
               <Route path='/courses' element={<Courses/>} />
               <Route path='/spotify' element={<Spotify/>} />
             </Routes>
-          </div>
-          <Divider />
-          <Links />
-        </Router>
-      </div>
-    );
-  }
+          </Suspense>
+        </div>
+        <Divider />
+        <Links />
+      </Router>
+    </div>
+  );
 }

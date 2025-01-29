@@ -95,3 +95,5 @@ bld/
 *.vspscc
 *.vssscc
 .builds
+# Million Lint
+.million
